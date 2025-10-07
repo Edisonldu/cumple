@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>💖 Feliz Cumpleaños, mi amor 💖</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow: hidden;
+      font-family: 'Quicksand', sans-serif;
+      color: white;
+      text-align: center;
+      background: linear-gradient(45deg, #ff9a9e, #fad0c4, #fcb69f, #ffdde1);
+      background-size: 400% 400%;
+      animation: backgroundMove 10s ease infinite;
+    }
+
+    @keyframes backgroundMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 0 25px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 4.8em;
+      color: #fff;
+      text-shadow:
+        0 0 20px #fff,
+        0 0 40px #ff66b2,
+        0 0 80px #ff3399;
+      animation: glowIn 3s ease forwards;
+    }
+
+    h2 {
+      font-size: 2em;
+      color: #fff8fb;
+      margin-top: -0.5em;
+      animation: fadeIn 3s ease 1.5s forwards;
+      opacity: 0;
+    }
+
+    p {
+      font-size: 1.3em;
+      max-width: 750px;
+      margin: 30px auto 0;
+      line-height: 1.7;
+      color: #fffdfd;
+      opacity: 0;
+      animation: fadeInUp 3s ease 2s forwards;
+    }
+
+    @keyframes glowIn {
+      0% { opacity: 0; transform: scale(0.8); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    @keyframes fadeIn {
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* corazones flotantes 💕 */
+    .heart {
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: pink;
+      transform: rotate(45deg);
+      animation: floatHeart linear infinite;
+      opacity: 0.8;
+      z-index: 1;
+    }
+
+    .heart::before, .heart::after {
+      content: '';
+      position: absolute;
+      width: 22px;
+      height: 22px;
+      background: pink;
+      border-radius: 50%;
+    }
+    .heart::before { top: -11px; left: 0; }
+    .heart::after { left: -11px; top: 0; }
+
+    @keyframes floatHeart {
+      0% {
+        transform: translateY(100vh) rotate(0deg) scale(0.8);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) rotate(360deg) scale(1.2);
+        opacity: 0;
+      }
+    }
+
+    /* ✨ Brillos */
+    .sparkle {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background: white;
+      border-radius: 50%;
+      animation: sparkleTwinkle linear infinite;
+      opacity: 0.8;
+      box-shadow: 0 0 10px white, 0 0 20px pink;
+    }
+
+    @keyframes sparkleTwinkle {
+      0%, 100% { opacity: 0; transform: scale(0.5); }
+      50% { opacity: 1; transform: scale(1.2); }
+    }
+
+    /* frase final animada */
+    .final {
+      position: absolute;
+      bottom: 40px;
+      width: 100%;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.5em;
+      color: #fff;
+      text-shadow:
+        0 0 15px #fff,
+        0 0 30px #ff69b4;
+      opacity: 0;
+      animation: fadeIn 4s ease 5s forwards, pulse 2.5s ease-in-out infinite 6s;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    audio {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!-- 🎶 Música romántica -->
+<audio autoplay loop>
+  <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 💖 Contenido principal -->
+<div class="container">
+  <h1>💖 Feliz Cumpleaños, Amor 💖</h1>
+  <h2>Hoy brilla el cielo porque celebra tu existencia 🌷</h2>
+  <p>
+    Hoy es el día más hermoso del año, porque el universo decidió regalarme a ti.  
+    Tu sonrisa ilumina mis días, tu voz es mi calma y tu amor mi mayor tesoro.  
+    Eres mi razón de soñar, de luchar y de creer en lo bonito de la vida.  
+    <br><br>
+    Que cada instante de tu día esté lleno de amor, risas y abrazos sinceros.  
+    Te Quiero con todo mi ser, mi niña bonita. 💞
+  </p>
+</div>
+
+<!-- 💫 Frase final -->
+<div class="final">✨ Te Quiero Mucho Mucho, mi amor ✨</div>
+
+<!-- 💕 Corazones flotantes + brillos -->
+<script>
+  for (let i = 0; i < 60; i++) {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.background = `hsl(${Math.random() * 360}, 90%, 70%)`;
+    heart.style.animationDuration = (Math.random() * 5 + 5) + "s";
+    heart.style.animationDelay = Math.random() * 5 + "s";
+    document.body.appendChild(heart);
+  }
+
+  for (let i = 0; i < 80; i++) {
+    const sparkle = document.createElement("div");
+    sparkle.className = "sparkle";
+    sparkle.style.left = Math.random() * 100 + "vw";
+    sparkle.style.top = Math.random() * 100 + "vh";
+    sparkle.style.animationDuration = (Math.random() * 3 + 2) + "s";
+    sparkle.style.animationDelay = Math.random() * 5 + "s";
+    document.body.appendChild(sparkle);
+  }
+</script>
+
+</body>
+</html>
